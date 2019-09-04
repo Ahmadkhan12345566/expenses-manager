@@ -70,12 +70,12 @@ class Crud_model extends CI_Model
     public function get_total_by_day($id){
         $this->db->select('DAY(date) AS day,SUM(amount) AS amount');
         $this->db->where('transaction_type_id', $id);
-        $this->db->group_by('DAY(date)');
+        $this->db->where('date BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()');
         // $this->db->where('YEAR(date)', date('Y'));
         $query = $this->db->get('transactions');
-        $result = $query->row();
-        var_dump($result);
-        die();
+        $result = $query->result();
+//        var_dump($result);
+//        die();
         return $result;
 
     }

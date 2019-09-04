@@ -47,21 +47,24 @@ class Transaction extends CI_Controller {
 
 
         // Todo:total of month one by one show in grapha
-        $data["graph_total__income"]= $this->Crud_model->get_total_by_months(1);
+        $data["graph_total_income"]= $this->Crud_model->get_total_by_months(1);
         //var_dump($data["graph_total__income"][0]->month);
-        $data["graph_total__equality"]= $this->Crud_model->get_total_by_months(2);
-        $data["graph_total__expense"]= $this->Crud_model->get_total_by_months(3);
-        $data["graph_total__lability"]= $this->Crud_model->get_total_by_months(4);
+        $data["graph_total_equality"]= $this->Crud_model->get_total_by_months(2);
+        $data["graph_total_expense"]= $this->Crud_model->get_total_by_months(3);
+        $data["graph_total_lability"]= $this->Crud_model->get_total_by_months(4);
 
         // Todo:total amount of month
         $data["total"]= $this->Crud_model->get_total_amount_of_month();
 
-        // Todo:total of current month
+        // Todo:total of current month amount last day
 
         $data["day_income"]= $this->Crud_model->get_total_by_day(1);
         $data["day_equality"]= $this->Crud_model->get_total_by_day(2);
         $data["day_expense"]= $this->Crud_model->get_total_by_day(3);
         $data["day_lability"]= $this->Crud_model->get_total_by_day(4);
+
+//        var_dump($data["day_income"]);
+//        die();
 
         $this->pageLoad('dashboard', $data);
     }

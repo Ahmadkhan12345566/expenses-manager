@@ -104,10 +104,10 @@
                         data: [<?php
                             $j = 0;
                             for ($i = 1; $i <= 12; $i++) {
-                                if (count($graph_total__income) > $j) {
+                                if (count($graph_total_income) > $j) {
 
-                                    if ($graph_total__income[$j]->month == $i) {
-                                        echo $graph_total__income[$j]->amount . ",";
+                                    if ($graph_total_income[$j]->month == $i) {
+                                        echo $graph_total_income[$j]->amount . ",";
                                         $j++;
                                     } else {
                                         echo 0;
@@ -126,10 +126,10 @@
                         data: [<?php
                             $j=0;
                             for ($i=1; $i <= 12; $i++) {
-                                if (count($graph_total__equality)>$j){
+                                if (count($graph_total_equality)>$j){
 
-                                    if ($graph_total__equality[$j]->month == $i){
-                                        echo $graph_total__equality[$j]->amount . ",";
+                                    if ($graph_total_equality[$j]->month == $i){
+                                        echo $graph_total_equality[$j]->amount . ",";
                                         $j++;
                                     } else {
                                         echo 0;
@@ -148,10 +148,10 @@
                         data: [<?php
                             $j = 0;
                             for ($i = 1; $i <= 12; $i++) {
-                                if(count($graph_total__expense)>$j){
+                                if(count($graph_total_expense)>$j){
 
-                                    if ($graph_total__expense[$j]->month == $i) {
-                                        echo $graph_total__expense[$j]->amount . ",";
+                                    if ($graph_total_expense[$j]->month == $i) {
+                                        echo $graph_total_expense[$j]->amount . ",";
                                         $j++;
                                     } else {
                                         echo 0;
@@ -171,10 +171,10 @@
                             <?php
                             $j=0;
                             for ($i=1; $i <= 12; $i++){
-                                if (count($graph_total__lability)>$j){
+                                if (count($graph_total_lability)>$j){
 
-                                    if ($graph_total__lability[$j]->month == $i){
-                                        echo $graph_total__lability[$j]->amount . ",";
+                                    if ($graph_total_lability[$j]->month == $i){
+                                        echo $graph_total_lability[$j]->amount . ",";
                                         $j++;
                                     }else{
                                         echo 0;
@@ -205,23 +205,84 @@
             data: {
                 labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
                 datasets: [{
-                    data: [86,114,106,106,107,111,133,221,783,2478],
+                    data: [<?php
+                        $j=0;
+                        for ($i = 1; $i <= 7; $i++){
+                            if (count($day_income)>$j){
+                                if ($day_income[$j]->day == $i){
+                                    echo $day_income[$j]->amount .",";
+                                    $j++;
+                                }else{
+                                    echo 0;
+                                    echo ",";
+                                }
+                            }else{
+                                echo 0;
+                                echo ",";
+                            }
+                        }
+                        ?>],
                     label: "Income",
                     //backgroundColor: "#3498DB";
                     backgroundColor: "#3498DB",
                     fill: false
                 }, {
-                    data: [282,350,411,502,635,809,947,1402,3700,5267],
+                    data: [<?php
+                        $j=0;
+                        for ($i = 1; $i <= 7; $i++){
+                            if(count($day_equality)>$j){
+                                if ($day_equality[$j]->day == $i){
+                                    echo $day_equality[$j]->amount . ",";
+                                }else{
+                                    echo 0;
+                                    echo ",";
+                                }
+                            }else{
+                                echo 0;
+                                echo ",";
+                            }
+                        }
+                        ?>],
                     label: "Equality",
                     backgroundColor: "#f17e5d",
                     fill: false
                 }, {
-                    data: [168,170,178,190,203,276,408,547,675,734],
+                    data: [<?php
+                        $j=0;
+                        for ($i = 1; $i <= 7 ; $i++){
+                            if (count($day_expense)>$j){
+                                if ($day_expense[$j]->day == $i){
+                                    echo $day_expense[$j]->amount . ",";
+                                }else {
+                                    echo 0;
+                                    echo ",";
+                                }
+                            }else {
+                                echo 0;
+                                echo ",";
+                            }
+                        }
+                        ?>],
                     label: "Expense",
                     backgroundColor: "#6bd098",
                     fill: false
                 }, {
-                    data: [40,20,10,16,24,38,74,167,508,784],
+                    data: [<?php
+                        $j=0;
+                        for ($i = 1; $i <= 7 ; $i++){
+                            if (count($day_lability)>$j){
+                                if ($day_lability[$j]->day == $i){
+                                    echo $day_lability[$j]->amount . ",";
+                                }else {
+                                    echo 0;
+                                    echo ",";
+                                }
+                            }else {
+                                echo 0;
+                                echo ",";
+                            }
+                        }
+                        ?>],
                     label: "Lability",
                     backgroundColor: "#4acccd",
                     fill: false
