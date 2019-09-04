@@ -67,16 +67,16 @@
      var myChart = new Chart(ctx, {
          type: 'pie',
          data: {
-             labels: ['Income  <?php echo(($total_income->amount*100)/$total->amount);?>%) ', 'Equality (<?php echo(($total_equality->amount*100)/$total->amount);?>%)) ',
+             labels: ['Income  <?php echo(($total_income->amount*100)/$total->amount);?>%) ', 'Equity (<?php echo(($total_equity->amount*100)/$total->amount);?>%)) ',
                  'Expense (<?php echo (($total_expense->amount*100)/$total->amount);?>%)', 'Lability (<?php echo (($total_lability->amount*100)/$total->amount);?>%)'],
              datasets: [{
-                 data: [<?php echo $total_income->amount;?>, <?php echo $total_equality->amount;?>,
+                 data: [<?php echo $total_income->amount;?>, <?php echo $total_equity->amount;?>,
                      <?php echo $total_expense->amount;?>, <?php echo $total_lability->amount;?>],
                  backgroundColor: [
-                     '#3498DB',
                      '#6bd098',
+                     '#3498DB',
                      '#ef8157',
-                     '#e3e3e3'
+                     '#fbc658'
                  ],
                  borderWidth: 1
              }]
@@ -100,7 +100,7 @@
                 datasets: [
                     {
                         label: "Income",
-                        backgroundColor: "#3498DB",
+                        backgroundColor: "#6bd098",
                         data: [<?php
                             $j = 0;
                             for ($i = 1; $i <= 12; $i++) {
@@ -121,15 +121,15 @@
                             ?>]
                     },
                     {
-                        label: "Equality",
-                        backgroundColor: "#6bd098",
+                        label: "Equity",
+                        backgroundColor: "#3498DB",
                         data: [<?php
                             $j=0;
                             for ($i=1; $i <= 12; $i++) {
-                                if (count($graph_total_equality)>$j){
+                                if (count($graph_total_equity)>$j){
 
-                                    if ($graph_total_equality[$j]->month == $i){
-                                        echo $graph_total_equality[$j]->amount . ",";
+                                    if ($graph_total_equity[$j]->month == $i){
+                                        echo $graph_total_equity[$j]->amount . ",";
                                         $j++;
                                     } else {
                                         echo 0;
@@ -166,7 +166,7 @@
                     },
                     {
                         label: "Lability",
-                        background: "",
+                        backgroundColor: "#fbc658",
                         data: [
                             <?php
                             $j=0;
@@ -224,15 +224,15 @@
                         ?>],
                     label: "Income",
                     //backgroundColor: "#3498DB";
-                    backgroundColor: "#3498DB",
+                    backgroundColor: "#6bd098",
                     fill: false
                 }, {
                     data: [<?php
                         $j=0;
                         for ($i = 1; $i <= 7; $i++){
-                            if(count($day_equality)>$j){
-                                if ($day_equality[$j]->day == $i){
-                                    echo $day_equality[$j]->amount . ",";
+                            if(count($day_equity)>$j){
+                                if ($day_equity[$j]->day == $i){
+                                    echo $day_equity[$j]->amount . ",";
                                 }else{
                                     echo 0;
                                     echo ",";
@@ -243,8 +243,8 @@
                             }
                         }
                         ?>],
-                    label: "Equality",
-                    backgroundColor: "#f17e5d",
+                    label: "Equity",
+                    backgroundColor: "#3498DB",
                     fill: false
                 }, {
                     data: [<?php
@@ -264,7 +264,7 @@
                         }
                         ?>],
                     label: "Expense",
-                    backgroundColor: "#6bd098",
+                    backgroundColor: "#f17e5d",
                     fill: false
                 }, {
                     data: [<?php
@@ -284,7 +284,7 @@
                         }
                         ?>],
                     label: "Lability",
-                    backgroundColor: "#4acccd",
+                    backgroundColor: "#fbc658",
                     fill: false
                 },
                 ]

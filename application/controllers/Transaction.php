@@ -41,7 +41,7 @@ class Transaction extends CI_Controller {
         // Todo:total of current month
 
         $data["total_income"]= $this->Crud_model->get_total(1);
-        $data["total_equality"]= $this->Crud_model->get_total(2);
+        $data["total_equity"]= $this->Crud_model->get_total(2);
         $data["total_expense"]= $this->Crud_model->get_total(3);
         $data["total_lability"]= $this->Crud_model->get_total(4);
 
@@ -49,7 +49,7 @@ class Transaction extends CI_Controller {
         // Todo:total of month one by one show in grapha
         $data["graph_total_income"]= $this->Crud_model->get_total_by_months(1);
         //var_dump($data["graph_total__income"][0]->month);
-        $data["graph_total_equality"]= $this->Crud_model->get_total_by_months(2);
+        $data["graph_total_equity"]= $this->Crud_model->get_total_by_months(2);
         $data["graph_total_expense"]= $this->Crud_model->get_total_by_months(3);
         $data["graph_total_lability"]= $this->Crud_model->get_total_by_months(4);
 
@@ -59,7 +59,7 @@ class Transaction extends CI_Controller {
         // Todo:total of current month amount last day
 
         $data["day_income"]= $this->Crud_model->get_total_by_day(1);
-        $data["day_equality"]= $this->Crud_model->get_total_by_day(2);
+        $data["day_equity"]= $this->Crud_model->get_total_by_day(2);
         $data["day_expense"]= $this->Crud_model->get_total_by_day(3);
         $data["day_lability"]= $this->Crud_model->get_total_by_day(4);
 
@@ -104,4 +104,36 @@ class Transaction extends CI_Controller {
             $this->pageLoad('categorytype', $data);
 
     }
+
+    public function insert_transaction_types(){
+
+        // Transaction type //
+        $transaction_type=array();
+        $transaction_type["transaction_name"]= 'Income';
+
+        // Transaction type 1//
+
+        $transaction_type1=array();
+        $transaction_type1["transaction_name"]='Equity';
+
+        // Transaction type 2 //
+
+        $transaction_type2=array();
+        $transaction_type2["transaction_name"]='Expense';
+
+        // Transaction type 3//
+
+        $transaction_type3=array();
+        $transaction_type3["transaction_name"]='Lability';
+
+
+        $this->Crud_model->insert('transaction_types', $transaction_type);
+        $this->Crud_model->insert('transaction_types', $transaction_type1);
+        $this->Crud_model->insert('transaction_types', $transaction_type2);
+        $this->Crud_model->insert('transaction_types', $transaction_type3);
+
+        echo "<h2 style='color: blue; text-align: center'>Welcome<h2><hr><p style='color: green; text-align: center''>Your data inserted in your database</p>";
+    }
+
+
 }
