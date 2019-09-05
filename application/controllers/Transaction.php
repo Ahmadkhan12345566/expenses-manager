@@ -24,7 +24,8 @@ class Transaction extends CI_Controller {
         parent::__construct();
         $this->load->model('Crud_model');
         $this->load->model('Transaction_model');
-        $this->load->helper('form');
+        $this->load->helper('form','url');
+        $this->load->library('auth', 'form_validation');
     }
 
     public function pageLoad($page,$data=null){
@@ -38,6 +39,8 @@ class Transaction extends CI_Controller {
 
     public function index()
     {
+
+        $data['user_id']=$this->auth->userID();
         // Todo:total of current month
 
         $data["total_income"]= $this->Crud_model->get_total(1);
@@ -70,9 +73,10 @@ class Transaction extends CI_Controller {
     }
     public function transact()
     {
-        if ($this->input->post()){
 
-            $this->Crud_model->insert('transactions', $this->input->post());
+        if ($data=$this->input->post()){
+            $data['user_id']=$this->auth->userID();
+            $this->Crud_model->insert('transactions', $data);
 
         }
             $data["transactions"]= $this->Transaction_model->get_all_data();
@@ -83,8 +87,9 @@ class Transaction extends CI_Controller {
     }
     public function transacttype()
     {
-        $data=$this->input->post();
-        if ($data){
+
+        if ($data=$this->input->post()){
+            $data['user_id']=$this->auth->userID();
             $this->Crud_model->insert('transaction_types',$data);
         }
             $data["transaction_types"]= $this->Crud_model->get_all_data('transaction_types');
@@ -95,45 +100,13 @@ class Transaction extends CI_Controller {
     {
 
         if ($data=$this->input->post()){
+            $data['user_id']=$this->auth->userID();
             $this->Crud_model->insert('categories',$data);
         }
 
             $data["categories"]= $this->Crud_model->get_all_data('categories');
-            //var_dump($data);
-            //die();
             $this->pageLoad('categorytype', $data);
 
     }
-
-    public function insert_transaction_types(){
-
-        // Transaction type //
-        $transaction_type=array();
-        $transaction_type["transaction_name"]= 'Income';
-
-        // Transaction type 1//
-
-        $transaction_type1=array();
-        $transaction_type1["transaction_name"]='Equity';
-
-        // Transaction type 2 //
-
-        $transaction_type2=array();
-        $transaction_type2["transaction_name"]='Expense';
-
-        // Transaction type 3//
-
-        $transaction_type3=array();
-        $transaction_type3["transaction_name"]='Lability';
-
-
-        $this->Crud_model->insert('transaction_types', $transaction_type);
-        $this->Crud_model->insert('transaction_types', $transaction_type1);
-        $this->Crud_model->insert('transaction_types', $transaction_type2);
-        $this->Crud_model->insert('transaction_types', $transaction_type3);
-
-        echo "<h2 style='color: blue; text-align: center'>Welcome<h2><hr><p style='color: green; text-align: center''>Your data inserted in your database</p>";
-    }
-
 
 }

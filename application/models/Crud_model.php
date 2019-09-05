@@ -12,6 +12,9 @@ class Crud_model extends CI_Model
     }
 
     public function insert($table, $data){
+        date_default_timezone_set('Asia/Karachi');
+        $data['created_at']=date('Y-m-d H:i:s');
+        $data['updated_at']=date('Y-m-d H:i:s');
         return $this->db->insert($table, $data);
     }
 

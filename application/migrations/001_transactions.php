@@ -19,6 +19,9 @@ class Migration_transactions extends CI_Migration {
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
             ),
+            'user_id' => array(
+                'type' => 'BIGINT',
+            ),
             'amount' => array(
                 'type' => 'BIGINT',
             ),
@@ -34,6 +37,10 @@ class Migration_transactions extends CI_Migration {
             ),
             'category_id' => array(
                 'type' => 'BIGINT',
+            ),
+            'created_at' =>array (
+                'type' => 'timestamp',
+                'default' => NULL,
             ),
             'updated_at' =>array (
                 'type' => 'timestamp',

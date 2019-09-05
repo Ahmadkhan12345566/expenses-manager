@@ -19,6 +19,9 @@ class Migration_categories extends CI_Migration {
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
             ),
+            'user_id' => array(
+                'type' => 'BIGINT',
+            ),
             'name' => array(
                 'type' => 'VARCHAR',
                 'constraint' => '100',
@@ -27,11 +30,11 @@ class Migration_categories extends CI_Migration {
                 'type' => 'VARCHAR',
                 'constraint' => '100',
             ),
-            'updated_at' =>array (
+            'created_at' =>array (
                 'type' => 'timestamp',
                 'default' => NULL,
             ),
-            'deleted_at' => array(
+            'updated_at' =>array (
                 'type' => 'timestamp',
                 'default' => NULL,
             ),
