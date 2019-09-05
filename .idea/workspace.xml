@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="13c0f87e-50ad-4b0e-b9d7-8b8d5c4e1d27" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/application/controllers/Login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/controllers/Signup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/migrations/004_users.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/inc/signup.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/login.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application/views/signup.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/assets/demo/demo.css" beforeDir="false" afterPath="$PROJECT_DIR$/application/assets/demo/demo.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/autoload.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/autoload.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/migration.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/migration.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/config/routes.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/config/routes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/controllers/Transaction.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/controllers/Transaction.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/migrations/001_transactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/migrations/001_transactions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/migrations/002_categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/migrations/002_categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/migrations/003_transaction_types.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/migrations/003_transaction_types.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/models/Crud_model.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/models/Crud_model.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application/views/inc/sidebar.php" beforeDir="false" afterPath="$PROJECT_DIR$/application/views/inc/sidebar.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,7 +30,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Transaction.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1700">
+            <state relative-caret-position="595">
               <caret line="100" selection-start-line="100" selection-end-line="100" />
             </state>
           </provider>
@@ -61,11 +45,38 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
+            <state relative-caret-position="408">
               <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/transactiontype.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="391">
+              <caret line="27" column="116" selection-start-line="27" selection-start-column="116" selection-end-line="27" selection-end-column="116" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/dashboard.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2023">
+              <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/transactions.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="85" column="84" selection-start-line="85" selection-start-column="68" selection-end-line="85" selection-end-column="84" />
             </state>
           </provider>
         </entry>
@@ -250,12 +261,12 @@
       <workItem from="1567573572356" duration="4641000" />
       <workItem from="1567596232991" duration="6022000" />
       <workItem from="1567658373610" duration="9406000" />
-      <workItem from="1567668534596" duration="406000" />
+      <workItem from="1567668534596" duration="1975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="106933000" />
+    <option name="totallyTimeSpent" value="108502000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -383,13 +394,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/transactiontype.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="27" column="116" selection-start-line="27" selection-start-column="116" selection-end-line="27" selection-end-column="116" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/assets/js/paper-dashboard.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-39">
@@ -481,13 +485,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/dashboard.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/assets/demo/demo.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="527">
@@ -499,13 +496,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="595">
           <caret line="121" column="32" selection-start-line="121" selection-start-column="32" selection-end-line="121" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/transactions.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="85" column="84" selection-start-line="85" selection-start-column="68" selection-end-line="85" selection-end-column="84" />
         </state>
       </provider>
     </entry>
@@ -619,13 +609,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/Transaction.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="100" selection-start-line="100" selection-end-line="100" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/Crud_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -649,8 +632,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/Login.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
+        <state relative-caret-position="408">
           <caret line="35" column="43" selection-start-line="35" selection-start-column="43" selection-end-line="35" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/dashboard.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2023">
+          <caret line="3" column="49" selection-start-line="3" selection-start-column="49" selection-end-line="3" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/transactions.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="85" column="84" selection-start-line="85" selection-start-column="68" selection-end-line="85" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/Transaction.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="595">
+          <caret line="100" selection-start-line="100" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/transactiontype.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="27" column="116" selection-start-line="27" selection-start-column="116" selection-end-line="27" selection-end-column="116" />
         </state>
       </provider>
     </entry>
