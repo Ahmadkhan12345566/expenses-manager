@@ -54,6 +54,8 @@ $route['dashboard'] = 'Transaction/index';
 $route['transactions'] = 'Transaction/transact';
 $route['transactiontype'] = 'Transaction/transacttype';
 $route['categorytype'] = 'Transaction/catetype';
+$route['signup'] = 'Signup/index';
+$route['login'] = 'Login/index';
 
 
 

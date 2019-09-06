@@ -24,7 +24,8 @@ class Transaction extends CI_Controller {
         parent::__construct();
         $this->load->model('Crud_model');
         $this->load->model('Transaction_model');
-        $this->load->helper('form');
+        $this->load->helper('form','url');
+        $this->load->library('auth', 'form_validation');
     }
 
     public function pageLoad($page,$data=null){
@@ -38,10 +39,12 @@ class Transaction extends CI_Controller {
 
     public function index()
     {
+
+        $data['user_id']=$this->auth->userID();
         // Todo:total of current month
 
         $data["total_income"]= $this->Crud_model->get_total(1);
-        $data["total_equality"]= $this->Crud_model->get_total(2);
+        $data["total_equity"]= $this->Crud_model->get_total(2);
         $data["total_expense"]= $this->Crud_model->get_total(3);
         $data["total_lability"]= $this->Crud_model->get_total(4);
 
@@ -49,7 +52,7 @@ class Transaction extends CI_Controller {
         // Todo:total of month one by one show in grapha
         $data["graph_total_income"]= $this->Crud_model->get_total_by_months(1);
         //var_dump($data["graph_total__income"][0]->month);
-        $data["graph_total_equality"]= $this->Crud_model->get_total_by_months(2);
+        $data["graph_total_equity"]= $this->Crud_model->get_total_by_months(2);
         $data["graph_total_expense"]= $this->Crud_model->get_total_by_months(3);
         $data["graph_total_lability"]= $this->Crud_model->get_total_by_months(4);
 
@@ -59,7 +62,7 @@ class Transaction extends CI_Controller {
         // Todo:total of current month amount last day
 
         $data["day_income"]= $this->Crud_model->get_total_by_day(1);
-        $data["day_equality"]= $this->Crud_model->get_total_by_day(2);
+        $data["day_equity"]= $this->Crud_model->get_total_by_day(2);
         $data["day_expense"]= $this->Crud_model->get_total_by_day(3);
         $data["day_lability"]= $this->Crud_model->get_total_by_day(4);
 
@@ -70,9 +73,10 @@ class Transaction extends CI_Controller {
     }
     public function transact()
     {
-        if ($this->input->post()){
 
-            $this->Crud_model->insert('transactions', $this->input->post());
+        if ($data=$this->input->post()){
+            $data['user_id']=$this->auth->userID();
+            $this->Crud_model->insert('transactions', $data);
 
         }
             $data["transactions"]= $this->Transaction_model->get_all_data();
@@ -83,8 +87,9 @@ class Transaction extends CI_Controller {
     }
     public function transacttype()
     {
-        $data=$this->input->post();
-        if ($data){
+
+        if ($data=$this->input->post()){
+            $data['user_id']=$this->auth->userID();
             $this->Crud_model->insert('transaction_types',$data);
         }
             $data["transaction_types"]= $this->Crud_model->get_all_data('transaction_types');
@@ -95,13 +100,13 @@ class Transaction extends CI_Controller {
     {
 
         if ($data=$this->input->post()){
+            $data['user_id']=$this->auth->userID();
             $this->Crud_model->insert('categories',$data);
         }
 
             $data["categories"]= $this->Crud_model->get_all_data('categories');
-            //var_dump($data);
-            //die();
             $this->pageLoad('categorytype', $data);
 
     }
+
 }

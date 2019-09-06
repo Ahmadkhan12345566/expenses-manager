@@ -19,9 +19,20 @@ class Migration_transaction_types extends CI_Migration {
                 'unsigned' => TRUE,
                 'auto_increment' => TRUE
             ),
+            'user_id' => array(
+                'type' => 'BIGINT',
+            ),
             'transaction_name' => array(
                 'type' => 'VARCHAR',
                 'constraint' => '100',
+            ),
+            'created_at' => array(
+                'type' => 'timestamp',
+                'default' => NULL,
+            ),
+            'updated_at' =>array (
+                'type' => 'timestamp',
+                'default' => NULL,
             ),
         ));
         $this->dbforge->add_key('id', TRUE);
