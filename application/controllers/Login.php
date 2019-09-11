@@ -18,6 +18,13 @@ class Login extends CI_Controller {
     {
         $data = array();
 
+
+
+
+
+
+
+
         if($_POST) {
             $data = $this->auth->login($_POST);
 

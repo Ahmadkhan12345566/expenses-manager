@@ -26,6 +26,9 @@ class Transaction extends CI_Controller {
         $this->load->model('Transaction_model');
         $this->load->helper('form','url');
         $this->load->library('auth', 'form_validation');
+        if(!$this->auth->userID()){
+            redirect(base_url("login"));
+        }
     }
 
     public function pageLoad($page,$data=null){

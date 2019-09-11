@@ -27,6 +27,11 @@ class Signup extends CI_Controller
         }
     }
 
+    public function insertall(){
+        $this->insert_transaction_types();
+        $this->insert_user();
+    }
+
     //Todo: Insert Transaction Types in database
     public function insert_transaction_types(){
 
