@@ -62,8 +62,6 @@
  </script>
     <script>
      var ctx = document.getElementById('myChart').getContext('2d');
-     // ctx.canvas.width = 200;
-     //  ctx.canvas.height = 200;
      var myChart = new Chart(ctx, {
          type: 'pie',
          data: {
@@ -92,7 +90,6 @@
 
     </script>
     <script>
-        // var ctx = document.getElementById('myBarChart').getContext('2d');
         new Chart(document.getElementById("myBarChart"), {
             type: 'bar',
             data: {
@@ -199,94 +196,32 @@
         });
     </script>
     <script>
-        // var ctx = document.getElementById('scatterChart').getContext('2d');
-        new Chart(document.getElementById("cateChart"), {
-            type: 'line',
+        new Chart(document.getElementById("categoryBarChart"), {
+            type: 'bar',
             data: {
-                labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-                datasets: [{
-                    data: [<?php
-                        $j=0;
-                        for ($i = 1; $i <= 7; $i++){
-                            if (count($day_income)>$j){
-                                if ($day_income[$j]->day == $i){
-                                    echo $day_income[$j]->amount .",";
-                                    $j++;
-                                }else{
-                                    echo 0;
-                                    echo ",";
-                                }
-                            }else{
-                                echo 0;
-                                echo ",";
+                labels: [<?php
+                    $j=0;
+                    foreach ($category_amount as $name) {
+                        echo   "\" $name->name \" ". ",";
+                    }
+                    ?>],
+                datasets: [
+
+                    {
+                        label: "Categories",
+                        backgroundColor: "#ef8157",
+                        data: [<?php
+                            $j=0;
+                            for ($i=0; $i < sizeof($category_amount); $i++) {
+                               if($category_amount[$i]->amount) {
+                                   echo $category_amount[$i]->amount . ",";
+                               }else{
+                                   echo 0 . ",";
+                               }
                             }
-                        }
-                        ?>],
-                    label: "Income",
-                    //backgroundColor: "#3498DB";
-                    backgroundColor: "#6bd098",
-                    fill: false
-                }, {
-                    data: [<?php
-                        $j=0;
-                        for ($i = 1; $i <= 7; $i++){
-                            if(count($day_equity)>$j){
-                                if ($day_equity[$j]->day == $i){
-                                    echo $day_equity[$j]->amount . ",";
-                                }else{
-                                    echo 0;
-                                    echo ",";
-                                }
-                            }else{
-                                echo 0;
-                                echo ",";
-                            }
-                        }
-                        ?>],
-                    label: "Equity",
-                    backgroundColor: "#3498DB",
-                    fill: false
-                }, {
-                    data: [<?php
-                        $j=0;
-                        for ($i = 1; $i <= 7 ; $i++){
-                            if (count($day_expense)>$j){
-                                if ($day_expense[$j]->day == $i){
-                                    echo $day_expense[$j]->amount . ",";
-                                }else {
-                                    echo 0;
-                                    echo ",";
-                                }
-                            }else {
-                                echo 0;
-                                echo ",";
-                            }
-                        }
-                        ?>],
-                    label: "Expense",
-                    backgroundColor: "#f17e5d",
-                    fill: false
-                }, {
-                    data: [<?php
-                        $j=0;
-                        for ($i = 1; $i <= 7 ; $i++){
-                            if (count($day_lability)>$j){
-                                if ($day_lability[$j]->day == $i){
-                                    echo $day_lability[$j]->amount . ",";
-                                }else {
-                                    echo 0;
-                                    echo ",";
-                                }
-                            }else {
-                                echo 0;
-                                echo ",";
-                            }
-                        }
-                        ?>],
-                    label: "Lability",
-                    backgroundColor: "#fbc658",
-                    fill: false
-                },
+                            ?>]
+                    },
+
                 ]
             },
             options: {
@@ -296,16 +231,6 @@
                 }
             }
         });
-
-    </script>
-    <script>
-        var ctx = document.getElementById('cateChart').getContext('2d');
-        var myLineChart = new Chart(ctx, {
-            type: 'line',
-            data: data,
-            options: options
-        });
-        Datase
     </script>
     <script>
     $(document).ready(function() {

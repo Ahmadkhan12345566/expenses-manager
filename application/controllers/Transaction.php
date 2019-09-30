@@ -29,11 +29,11 @@ class Transaction extends CI_Controller {
     }
 
     public function pageLoad($page,$data=null){
-
+;
         $this->load->view('inc/header');
         $this->load->view('inc/sidebar');
         $this->load->view($page,$data);
-        $this->load->view('inc/footer');
+        $this->load->view('inc/footer',$data);
 
     }
 
@@ -61,12 +61,16 @@ class Transaction extends CI_Controller {
 
         // Todo:total of current month amount last day
 
-        $data["day_income"]= $this->Crud_model->get_total_by_day(1);
-        $data["day_equity"]= $this->Crud_model->get_total_by_day(2);
-        $data["day_expense"]= $this->Crud_model->get_total_by_day(3);
-        $data["day_lability"]= $this->Crud_model->get_total_by_day(4);
+//        $data["category_income"]= $this->Crud_model->get_total_by_day(1);
+//        $data["category_equity"]= $this->Crud_model->get_total_by_day(2);
+//        $data["category_expense"]= $this->Crud_model->get_total_by_day(3);
+//        $data["category_lability"]= $this->Crud_model->get_total_by_day(4);
 
-//        var_dump($data["day_income"]);
+        // Todo:total of categories current month amount
+        $data["category_amount"]= $this->Crud_model->get_category_total_by_month();
+
+        $data["categories"]= $this->Transaction_model->get_all_data('categories');
+//        var_dump($data["category_amount"]);
 //        die();
 
         $this->pageLoad('dashboard', $data);
