@@ -20,6 +20,17 @@ class Transaction_model extends CI_Model
     }
 
 
+    public function get_category_data(){
+        $this->db->select('*');
+        $this->db->from("categories");
+        $this->db->join("transactions","transactions.category_id = categories.id","left");
+
+        //var_dump( $this->db->get()->result());
+        //die();
+        return $this->db->get()->result();
+    }
+
+
 
 
 

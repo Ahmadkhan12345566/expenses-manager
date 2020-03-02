@@ -69,17 +69,27 @@ class Crud_model extends CI_Model
         return $result;
     }
 
-    //Todo: Total Amount Sum
-    public function get_total_by_day($id){
-        $this->db->select('DAY(date) AS day,SUM(amount) AS amount');
-        $this->db->where('transaction_type_id', $id);
-        $this->db->where('date BETWEEN DATE_SUB(NOW(), INTERVAL 7 DAY) AND NOW()');
+    //Todo: Total Category Amount Sum
+    public function get_category_total_by_month(){
+
+
+        $this->db->select('categories.name,SUM(amount) AS amount');
+        $this->db->from('transactions');
+       $this->db->join("categories","categories.id = transactions.category_id",'right');
+        $this->db->where('MONTH(date)', date('m'));
+        $this->db->group_by('category_id');
+        $result=$this->db->get()->result();
+        return $result;
+        //  $this->db->select('SUM(amount) AS category_name');
+        //$this->db->where('category_id', $id);
+       // $this->db->group_by('MONTH(date)');
+//        $this->db->where('date BETWEEN DATE_SUB(NOW(), INTERVAL 30 DAY) AND NOW()');
         // $this->db->where('YEAR(date)', date('Y'));
-        $query = $this->db->get('transactions');
-        $result = $query->result();
+       // $query = $this->db->get('transactions');
+       // $result = $query->result();
 //        var_dump($result);
 //        die();
-        return $result;
+        //return $result;
 
     }
 
